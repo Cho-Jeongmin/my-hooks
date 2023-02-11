@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+const useInput = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
+  const onChange = (event) => {
+    setValue(event.target.value);
+  };
+  return { value, onChange };
+};
+
+const App = () => {
+  const name = useInput("Mr.");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello</h1>
+      <input placeholder="Name" {...name} />
     </div>
   );
+};
+
+class AppUgly extends React.Component {
+  state = {
+    item: 1,
+  };
+  incrementItem = () => {
+    this.setState((current) => {
+      return { item: current.item + 1 };
+    });
+  };
+  decrementItem = () => {
+    this.setState((current) => {
+      return { item: current.item - 1 };
+    });
+  };
+  render() {
+    const { item } = this.state;
+    return (
+      <div className="App">
+        <h1>Hello {item}</h1>
+        <button onClick={this.incrementItem}>Increment</button>
+        <button onClick={this.decrementItem}>Decrement</button>
+      </div>
+    );
+  }
 }
 
 export default App;
