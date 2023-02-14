@@ -10,7 +10,11 @@ const useConfirm = (message = "", onConfirm, onCancel) => {
       //확인 버튼 클릭시
       onConfirm();
     } else {
-      onCancel();
+      try {
+        onCancel();
+      } catch (error) {
+        return;
+      }
     }
   };
   return confirmAction;
