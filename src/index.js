@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./useNetwork";
+import App from "./useScroll";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
