@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./useScroll";
+import App from "./useFullscreen";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
